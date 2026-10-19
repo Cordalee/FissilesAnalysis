@@ -13,8 +13,8 @@ namespace Fissiles
 
         [Tooltip("Master switch. Off = the SDK never starts and nothing is reported.")]
         public bool reportingEnabled = true;
-        [Tooltip("Analytics server, e.g. https://analytics.fissiles.net")]
-        public string serverUrl = "https://analytics.fissiles.net";
+        [Tooltip("Analytics server, e.g. https://analytics.example.com")]
+        public string serverUrl = "";
 
         [Header("Release builds")]
         public string appId = "";

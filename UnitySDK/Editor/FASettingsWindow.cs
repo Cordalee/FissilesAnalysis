@@ -41,6 +41,12 @@ namespace Fissiles.EditorUI
         public static void OpenDashboard(bool dev)
         {
             var s = LoadOrCreate();
+            if (string.IsNullOrEmpty(s.serverUrl))
+            {
+                Debug.LogWarning("[FA] 服务器地址还没有填写，请先在配置窗口里设置。");
+                Open();
+                return;
+            }
             var id = dev ? s.devAppId : s.appId;
             var url = s.serverUrl.TrimEnd('/') + (string.IsNullOrEmpty(id) ? "/" : "/?app=" + UnityWebRequest.EscapeURL(id) + "#realtime");
             Application.OpenURL(url);
